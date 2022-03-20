@@ -17,7 +17,7 @@
 // ==/UserScript==
 
 // The gain will only be boosted if the content loudness is below 0dB, if above 0dB gain is reset to 1x (YouTube handles normalization in this case)
-// Volume boost is calculated as a gain multipler based on how queit it is.
+// Volume boost is calculated as a gain multipler based on how quiet it is.
 
 // 2022.03.20
 // - First iteration
