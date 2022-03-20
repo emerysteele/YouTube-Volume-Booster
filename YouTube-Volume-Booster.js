@@ -48,7 +48,7 @@
 
         if(volumeLevel.indexOf("-") == 0){
             if(typeof gainNode == 'object'){
-                gainNode.gain.value = parseFloat(volumeGainPwr).toFixed(4) + parseFloat(gainAdjust);
+                gainNode.gain.value = parseFloat(parseFloat(volumeGainPwr).toFixed(4)) + parseFloat(gainAdjust);
 
                 console.log("Needed gain: "+volumeGainPwr.toFixed(4)+"x");
                 console.log("Set gain (with gain adjust): "+gainNode.gain.value.toFixed(4)+"x");
@@ -61,7 +61,7 @@
             mediaSource.connect(gainNode);
 
             gainNode.connect(audioCtx.destination);
-            gainNode.gain.value = parseFloat(volumeGainPwr).toFixed(4) + parseFloat(gainAdjust);
+            gainNode.gain.value = parseFloat(parseFloat(volumeGainPwr).toFixed(4)) + parseFloat(gainAdjust);
 
             console.log("Needed gain: "+volumeGainPwr.toFixed(4)+"x");
             console.log("Set gain (with gain adjust): "+gainNode.gain.value.toFixed(4)+"x");
