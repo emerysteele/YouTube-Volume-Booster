@@ -35,7 +35,7 @@
     var volumeGainPwr = undefined;
 
     function main(){
-        console.log("New page loaded, running content loudness anaysis and volume normalization if needed.");
+        console.log("New page loaded, running content loudness anaysis and gain boost if needed.");
 
         player = document.getElementById('movie_player');
         volumeLevel = player.getStatsForNerds(0).volume.match(/(-?[0-9]\d*(\.\d+)?dB)/)[0];
