@@ -25,6 +25,8 @@
 (function() {
     window.addEventListener("yt-navigate-finish", main, true);
 
+    var gainAdjust = -0.2; //Use this to decrease or increase gain by a set value
+
     var video = undefined;
     var audioCtx = undefined;
     var mediaSource = undefined;
@@ -46,9 +48,10 @@
 
         if(volumeLevel.indexOf("-") == 0){
             if(typeof gainNode == 'object'){
-                gainNode.gain.value = volumeGainPwr;
+                gainNode.gain.value = parseFloat(volumeGainPwr) + parseFloat(gainAdjust);
 
-                console.log("Setting gain: "+volumeGainPwr+"x");
+                console.log("Needed gain: "+volumeGainPwr+"x");
+                console.log("Set gain (with gain adjust): "+gainNode.gain.value+"x");
             }
             else{
             video = document.querySelector('video');
@@ -58,14 +61,14 @@
             mediaSource.connect(gainNode);
 
             gainNode.connect(audioCtx.destination);
-            gainNode.gain.value = volumeGainPwr;
-
-            console.log("Setting gain: "+volumeGainPwr+"x");
+            gainNode.gain.value = parseFloat(volumeGainPwr) + parseFloat(gainAdjust);
+            console.log("Needed gain: "+volumeGainPwr+"x");
+            console.log("Set gain (with gain adjust): "+gainNode.gain.value+"x");
             }
         }
         else{
             if(typeof gainNode == 'object'){
-                gainNode.gain.value = 1;
+                gainNode.gain.value = parseFloat(1) + parseFloat(gainAdjust);
 
                 console.log("Setting gain: 1x");
             }
