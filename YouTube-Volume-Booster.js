@@ -25,7 +25,7 @@
 (function() {
     window.addEventListener("yt-navigate-finish", main, true);
 
-    var gainAdjust = -0.0; //Use this to decrease or increase gain by a set value
+    var gainAdjust = -0.0; //Use this to decrease or increase final gain boost by a set value
 
     var video = undefined;
     var audioCtx = undefined;
