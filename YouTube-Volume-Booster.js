@@ -35,20 +35,19 @@
     var volumeGainPwr = undefined;
 
     function main(){
-        console.log("New video loaded, running normalization script.");
+        console.log("New page loaded, running content loudness anaysis and volume normalization if needed.");
         player = document.getElementById('movie_player');
-        console.log(player);
         volumeLevel = player.getStatsForNerds(0).volume.match(/(-?[0-9]\d*(\.\d+)?dB)/)[0];
         volumeGain = volumeLevel.match(/[0-9]\d*(\.\d+)?/)[0];
         volumeGainPwr = Math.pow(10,volumeGain/20)
-        console.log(volumeLevel);
+        console.log("Content loudness: "+volumeLevel);
 
 
 
         if(volumeLevel.indexOf("-") == 0){
             if(typeof gainNode == 'object'){
                 gainNode.gain.value = volumeGainPwr;
-                console.log(volumeGainPwr);
+                console.log("Setting gain: "+volumeGainPwr+"x");
             }
             else{
 
@@ -64,13 +63,13 @@
 
 
             gainNode.gain.value = volumeGainPwr;
-            console.log(volumeGainPwr);
+            console.log("Setting gain: "+volumeGainPwr+"x");
             }
         }
         else{
             if(typeof gainNode == 'object'){
                 gainNode.gain.value = 1;
-                console.log(1);
+                console.log("Setting gain: 1x");
             }
             else{
 
