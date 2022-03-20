@@ -62,6 +62,7 @@
 
             gainNode.connect(audioCtx.destination);
             gainNode.gain.value = parseFloat(volumeGainPwr) + parseFloat(gainAdjust);
+
             console.log("Needed gain: "+volumeGainPwr+"x");
             console.log("Set gain (with gain adjust): "+gainNode.gain.value+"x");
             }
@@ -70,7 +71,8 @@
             if(typeof gainNode == 'object'){
                 gainNode.gain.value = parseFloat(1) + parseFloat(gainAdjust);
 
-                console.log("Setting gain: 1x");
+                console.log("Needed gain: "+volumeGainPwr+"x");
+                console.log("Set gain (with gain adjust): "+gainNode.gain.value+"x");
             }
             else{
             }
