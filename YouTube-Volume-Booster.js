@@ -76,15 +76,15 @@
             }
             else{
                 video = document.querySelector('video');
-            audioCtx = new AudioContext();
-            mediaSource = audioCtx.createMediaElementSource(video);
-            gainNode = audioCtx.createGain();
-            mediaSource.connect(gainNode);
+                audioCtx = new AudioContext();
+                mediaSource = audioCtx.createMediaElementSource(video);
+                gainNode = audioCtx.createGain();
+                mediaSource.connect(gainNode);
 
-            gainNode.connect(audioCtx.destination);
-            gainNode.gain.value = parseFloat(1) + parseFloat(gainAdjust);
+                gainNode.connect(audioCtx.destination);
+                gainNode.gain.value = parseFloat(1) + parseFloat(gainAdjust);
 
-            console.log("Needed gain: 1x");
+                console.log("Needed gain: 1x");
                 console.log("Set gain (with gain adjust): "+gainNode.gain.value.toFixed(4)+"x");
             }
         }
